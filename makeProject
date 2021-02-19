@@ -1,0 +1,14 @@
+#! /bin/bash
+
+IFS='.' read -r -a array <<< $1
+
+root=${array[-1]}
+slash="/"
+tree=""
+
+for element in "${array[@]}"
+do
+    tree+="${element}$slash"
+done
+
+mkdir -p $root/{src/java/$tree,test/java/$tree}
